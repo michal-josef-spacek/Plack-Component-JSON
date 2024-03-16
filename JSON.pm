@@ -6,7 +6,7 @@ use warnings;
 
 #use Encode qw(encode);
 use English;
-use Error::Pure::Utils qw(err_msg err_get);
+use Error::Pure::Utils qw(err_get);
 use Plack::Util::Accessor qw(cb_error content_type data data_type encoding json psgi_app status_code);
 use Cpanel::JSON::XS;
 use Cpanel::JSON::XS::Type;
