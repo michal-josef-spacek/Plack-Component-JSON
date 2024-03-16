@@ -1,0 +1,11 @@
+TODO
+====
+1. Return better error structure for output json.
+[message + params], [message], [message + params]
+2. Encoding of JSON.
+3. Doc.
+4. Tests.
+5.
+
+Applied
+=======
