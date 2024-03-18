@@ -7,7 +7,8 @@ TODO
 4. Tests.
 5. User error JSON type.
 6. Check errors/warnings in types of JSON?
-7.
+7. What about output encoding. Default is utf8 = ->utf8.
+8.
 
 Applied
 =======

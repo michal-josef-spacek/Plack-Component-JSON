@@ -56,7 +56,7 @@ sub call {
 		) : (),
 	};
 
-	my $json = $self->json->encode($json_hr, $json_types_hr);
+	my $json = $self->json->utf8->encode($json_hr, $json_types_hr);
 
 	# Return PSGI app.
 	my $ret_ar = [
