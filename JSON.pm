@@ -9,7 +9,8 @@ use Cpanel::JSON::XS::Type;
 #use Encode qw(encode);
 use English;
 use Error::Pure::Utils qw(err_get);
-use Plack::Util::Accessor qw(cb_error content_type data data_type encoding json psgi_app status_code);
+use Plack::Util::Accessor qw(cb_error content_type data data_type encoding
+	http_headers json psgi_app status_code);
 
 our $VERSION = 0.01;
 
@@ -59,10 +60,12 @@ sub call {
 	my $json = $self->json->utf8->encode($json_hr, $json_types_hr);
 
 	# Return PSGI app.
+	my $headers_hr = $self->http_headers;
 	my $ret_ar = [
 		$self->status_code,
 		[
 			'content-type' => $self->content_type,
+			defined $headers_hr ? (%{$headers_hr}) : (),
 		],
 		[$json],
 	];
