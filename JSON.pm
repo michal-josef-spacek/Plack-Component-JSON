@@ -102,11 +102,16 @@ sub _prepare_app {
 	if (! $self->cb_error) {
 		$self->cb_error(sub {
 			my ($self, $eval_error) = @_;
+
 			my @err_msg = err_get(1);
 			foreach my $err_hr (@err_msg) {
 				push @{$self->{'error'}}, $err_hr->{'msg'}->[0];
 				# XXX Error parameters.
 			}
+
+			$self->status_code(400);
+
+			return;
 		});
 	}
 
